@@ -1,0 +1,11 @@
+-- @path ECB=/Diagram2ECB/ECB.ecore
+module Diagram2ECB;
+create OUT: ECB from IN: Diagrams;
+rule CreateBoundary {
+	from
+		s: Diagrams!Actor
+	to
+		t: ECB!Boundary (
+			name <- 'Boundary' + s.name
+		)
+}
