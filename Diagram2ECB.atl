@@ -9,3 +9,21 @@ rule CreateBoundary {
 			name <- 'Boundary' + s.name
 		)
 }
+
+rule ActorToECBActor {
+	from
+		s: Diagrams!Actor
+	to
+		t: ECB!Actor (
+			name <- s.name		
+		)
+}
+
+rule UseCaseToController {
+	from
+		s: Diagrams!UseCase
+	to
+		t: ECB!Controller (
+			name <- 'Controller' + s.name	
+		)
+}
